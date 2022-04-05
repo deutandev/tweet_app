@@ -9,25 +9,13 @@
   </ul>
 </header>
 
-<!-- Define the posts array -->
-<%
-  posts = [
-    "Learning Rails with Progate!",
-    "Trying to display the posts!"
-  ]
-%>
-
 <div class="main posts-index">
   <div class="container">
-    <!-- Add an each method -->
-    <% 
-      posts.each do |post|
-    %>
+    <!-- Rewrite posts with @posts -->
+    <% @posts.each do |post| %>
       <div class="posts-index-item">
-        <!-- Display the post using <%= %> -->
-        <%= post%>
+        <%= post %>
       </div>
-    <!-- Add the end for the each method -->
     <% end %>
   </div>
 </div>
