@@ -11,10 +11,10 @@
 
 <div class="main posts-index">
   <div class="container">
-    <!-- Rewrite posts with @posts -->
     <% @posts.each do |post| %>
       <div class="posts-index-item">
-        <%= post %>
+        <!-- Rewrite using post.content -->
+        <%= post.content %>
       </div>
     <% end %>
   </div>
