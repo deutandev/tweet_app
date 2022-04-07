@@ -2,8 +2,8 @@
   <div class="container">
     <% @posts.each do |post| %>
       <div class="posts-index-item">
-        <!-- Rewrite using post.content -->
-        <%= post.content %>
+        <!-- Rewrite using link_to -->
+        <%= link_to(post.content, "/posts/#{post.id}") %>
       </div>
     <% end %>
   </div>
