@@ -18,4 +18,8 @@ class PostsController < ApplicationController
 
     redirect_to("/posts/index")
   end
+
+  def edit
+  end
+
 end
