@@ -14,9 +14,14 @@
           <p>Name</p>
           <!-- Use the value attribute to set the default value -->
           <input name="name" value="<%= @user.name %>">
+          
           <p>Email</p>
           <!-- Use the value attribute to set the default value -->
           <input name="email" value="<%= @user.email %>">
+          
+          <p>Password</p>
+          <input type="password" name="password" value="<%= @user.password %>"> 
+
           <input type="submit" value="Sign up">
         <% end %>
       </div>
