@@ -14,24 +14,37 @@
         <%= link_to("TweetApp", "/") %>
       </div>
       <ul class="header-menus">
-        <li>
-          <%= link_to("About", "/about") %>
-        </li>
-        <li>
-          <%= link_to("Posts", "/posts/index") %>
-        </li>
-        <li>
-          <%= link_to("New post", "/posts/new") %>
-        </li>
-        <li>
-          <%= link_to("Users", "/users/index") %>
-        </li>
-        <li>
-          <%= link_to("Sign up", "/signup") %>
-        </li>
-        <li>
-          <%= link_to("Log In", "/login") %>
-        </li>
+        <% if session[:user_id] %>
+          <li>
+            Your ID is:
+            <%= session[:user_id] %>
+          </li>
+          <!-- Paste the HTML for users that are logged in -->
+          <li>
+            <%= link_to("Posts", "/posts/index") %>
+          </li>
+          <li>
+            <%= link_to("New post", "/posts/new") %>
+          </li>
+          <li>
+            <%= link_to("Users", "/users/index") %>
+          </li>
+          <li>
+            <!-- Add a link to the "logout" action -->
+            <%= link_to("Log out", "/logout", {method: :post}) %>
+          </li>
+        <% else %>
+          <!-- Paste the HTML for users that are not logged in -->
+          <li>
+            <%= link_to("About", "/about") %>
+          </li>
+          <li>
+            <%= link_to("Sign up", "/signup") %>
+          </li>
+          <li>
+            <%= link_to("Log in", "/login") %>
+          </li>
+        <% end %>
       </ul>
     </header>
 

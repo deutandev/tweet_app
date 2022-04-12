@@ -61,11 +61,22 @@ class UsersController < ApplicationController
       password: params[:password]
     )
     if @user
+      session[:user_id] = @user.id
       flash[:notice] = "You have logged in successfully"
       redirect_to("/posts/index")
     else
+      @error_message = "Invalid email/password..."
+      @email = params[:email]
+      @password = params[:password]
       render("users/login_form")
     end
   end
+
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "You have logged out successfully"
+    redirect_to("/login")
+  end
+
   
 end
