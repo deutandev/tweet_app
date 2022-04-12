@@ -13,7 +13,11 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(name: params[:name], email: params[:email])
+    @user = User.new(
+      name: params[:name], 
+      email: params[:email],  
+      image_name: "default_user.jpg"
+    )
     # Redirect to the Users page if the @user is valid, and render the New user page if it isn't
     if @user.save
       flash[:notice] = "You have signed up successfully"
