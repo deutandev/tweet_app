@@ -1,20 +1,24 @@
 <div class="main posts-show">
   <div class="container">
     <div class="posts-show-item">
+      <div class="post-user-name">
+        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        <%= link_to(@user.name, "/users/#{@user.id}") %>
+      </div>
+      
       <p>
-        <!-- Display the @post's content -->
         <%= @post.content %>
       </p>
-      <!-- Paste the HTML here -->
       <div class="post-time">
-        <!-- Display the @post's created_at -->
         <%= @post.created_at %>
       </div>
-      <!-- Add a link that redirects to the Edit post page -->
-      <div class="post-menus">
-        <%= link_to("Edit", "/posts/#{@post.id}/edit") %>
-        <%= link_to("Delete", "/posts/#{@post.id}/destroy", {method: "post"}) %>
-      </div>
+      
+      <% if @post.user_id == @current_user.id %>
+        <div class="post-menus">
+          <%= link_to("Edit", "/posts/#{@post.id}/edit") %>
+          <%= link_to("Delete", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+        </div>
+      <% end %> 
     </div>
   </div>
 </div>
